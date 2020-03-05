@@ -5,8 +5,7 @@ class Users extends Component {
 
   render() {
     
-    const usersList = this.props.usernames.map(user => {
-      debugger;
+    const usersList = this.props.users.map(user => {
         return <li>{user.username}</li>
       });
 
@@ -17,7 +16,7 @@ class Users extends Component {
           {/* Write code here that displays the usernames of all users in the Redux store */}
           {usersList}
           {/* In addition, display the total number of users curently in the store */}
-          <p>{this.props.usernames.length}</p>
+          <p>{this.props.userCount}</p>
         </ul>
       </div>
     )
@@ -27,7 +26,8 @@ class Users extends Component {
 const mapStateToProps = (state) => {
   
   return {
-    usernames: state.users
+    users: state.users,
+    userCount: state.users.length
   }
 }
 
